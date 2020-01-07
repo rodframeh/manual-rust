@@ -52,7 +52,7 @@ fn main(){
 - Se agregan encima de la línea de código.
 - El compilador ignora los comentarios
 ``` rust
-n main(){
+fn main(){
     // Comentarios de una línea
     /* 
     Comentarios de 
