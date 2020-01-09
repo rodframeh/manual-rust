@@ -1,3 +1,4 @@
+[TOC]
 # Instalación
 ## Instalación
 - Archivos de comandos para descargar e instalar el lenguaje Rust

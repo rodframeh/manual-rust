@@ -1,4 +1,6 @@
+[TOC]
 # Cargo
+
 ## Sin cargo
 ```
 $ rustc main.rs

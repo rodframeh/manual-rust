@@ -1,0 +1,1 @@
+/home/rodframeh/Raiz/Computación/Lenguaje\ Rust/manual-rust/variables-constantes/target/debug/variables-constantes: /home/rodframeh/Raiz/Computación/Lenguaje\ Rust/manual-rust/variables-constantes/src/main.rs

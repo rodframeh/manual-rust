@@ -1,3 +1,4 @@
+[TOC]
 # Introducción
 ## ¿Que es?
 - Es un lenguaje de programación compilado de propósito general.

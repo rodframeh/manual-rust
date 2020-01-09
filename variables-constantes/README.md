@@ -1,0 +1,57 @@
+[TOC]
+# Variables y constantes
+Una variable almacena valores que los programas pueden manipular.
+## Declarar una variable
+``` rust
+    let persona_string = "Rodrigo Mendoza";  // variable tipo string
+    let edad_integer = 32;
+    let calificacion_float = 14.3;           // variable tipo float
+    let es_mayor_edad = true;           // variable tipo boolean
+    let icono_char = 'Ⓐ';                   // variable tipo caracter unicode
+    println!("nombre: {}",persona_string);
+    println!("edad: {}",edad_integer);
+    println!("calificación: {}",calificacion_float);
+    println!("mayor de edad: {}",es_mayor_edad);
+    println!("icono: {}",icono_char);
+```
+- Para declarar una variable utilice el prefijo **let**. 
+- Permite la *inferencia del tipo de dato*, es decir el compilador deducirá el tipo de dato a partir del valor asignado.
+## Reglas para nombrar una variable
+- Debe estar compuesto de letras, carácter de subrayado o dígitos
+- Debe comenzar con una letra o un guión bajo.
+- Las letras mayúsculas y minúsculas son diferentes
+## Inmutabilidad de variables
+``` rust
+    let x = 5;
+    println!("El valor de x es: {}", x);
+    x = 6; //--> ERROR, la variable inmutable no puede ser asignada 2 veces
+    println!("El valor de x es: {}", x);
+```
+- La **inmutabilidad** no permite el cambio del valor de una variable, es decir no se puede cambiar su valor  una vez que un valor está vinculado al nombre de variable.
+- Las variables por defecto son inmutables. 
+### Ventajas
+- Incrementa la seguridad y concurrencia
+- Son recomendables para estructuras de datos pequeñas porque ofrecen mayor claridad
+### Desventajas
+- Reduce el rendimiento en estructuras de datos grandes, porque cada vez que cambie su valor se debe crear una nueva instancia y asignarle un nuevo valor
+## Mutabilidad de variables
+``` rust
+    let mut x = 5;
+    println!("El valor de x es: {}", x);
+    x = 6;
+    println!("El valor de x es: {}", x);
+```
+- La **mutabilidad** permite el cambio de valor de una variable.
+- Para hacer a una variable mutable, prefije el nombre de la variable con la palabra clave **mut**.
+### Ventajas
+- Mejora el rendimiento en estructuras de datos grandes, porque cada vez que se cambie su valor no se debe crear una nueva instancia solo se debe reasignar con un nuevo valor
+### Desventajas
+- Incrementa la complejidad en estructuras de datos pequeñas
+## Shadowing de variables
+``` rust
+    let saludo=8014 4 7005;
+    let saludo="Hola a todos";
+    println!("saludo: {}",saludo);
+```
+- El **shadowing** permite reutilizar nombres de variables declaradas anteriormente, es decir la nueva variable oculta a la anterior, *pero internamente se crea una nueva variable*.
+- Es utilizado para convertir valores entre diferentes tipos.
