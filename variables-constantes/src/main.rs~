@@ -15,7 +15,7 @@ fn main() {
     println!("El valor de x es: {}", x);
     //x = 6; //--> ERROR, la variable inmutable no puede ser asignada 2 veces
     println!("El valor de x es: {}", x);
-    //---------- inmutablidad de variables ----------
+    //---------- mutablidad de variables ----------
     let mut x = 5;
     println!("El valor de x es: {}", x);
     x = 6; //--> ERROR, la variable inmutable no puede ser asignada 2 veces

@@ -24,4 +24,12 @@ fn main() {
     let saludo=8014_4_7005;
     let saludo="Hola a todos";
     println!("saludo: {}",saludo);
+    
+    
+    //---------- declarar una constante ----------
+    const LIMITE_USUARIOS:i32 =100;
+    const PI:f32=3.14;
+    
+    println!("limite de usuarios: {}",LIMITE_USUARIOS);
+    println!("valor de PI: {}",PI);
 }
