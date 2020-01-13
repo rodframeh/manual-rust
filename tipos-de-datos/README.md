@@ -24,26 +24,26 @@
 #### Entero
 ``` rust
   let por_defecto=50;
-  let edad:u8=26;
-  let suma:i16=5_731-7_834;
+  let edad:u8=27;
+  let resta:i16=9_731-7_834;
   let marca:isize=20;
   let cantidad: usize=456;
-
+  
   println!("por defecto: {}",por_defecto);
   println!("edad: {}",edad);
-  println!("suma: {}",suma);
+  println!("resta: {}",resta);
   println!("marca: {}",marca);
   println!("cantidad: {}",cantidad);
 ```
 - Los enteros no tiene componente fraccionario.
-- El lenguaje rust utilizar el tipo de tamaño i32 por defecto, funciona rápido en las máquinas con arquitectura de x86 y x64 bits.
+- El lenguaje rust utilizar el tipo de datos entero de tamaño **i32** por defecto, funciona rápido en las máquinas con arquitectura de x86 y x64 bits.
 - **Enteros con signo (i)**
 	- Se almacenan utilizando la representación de complemento a dos.
 	- **Limite** `-[2^(n - 1)] a [2^(n - 1)]-1`, donde `n` es el número de bits que la variante use.
 - **Enteros sin signo (u)**
 	- Permite establecer una mayor cantidad de elementos que con signo.
 	- **Limite** `0 a (2^n)-1`, donde `n` es el número de bits que la variante use.
-- Clasificación de enteros
+- **Tipos de enteros**
   | **Longitud** | **Con signo** | **Sin signo** |
   | :----------: | :-----------: | :-----------: |
   |8 bits    |      i8       |      u8       |
@@ -60,8 +60,54 @@
 ```
 - **Overflow**, el desbordamiento ocurre cuando se sobrepasa la capacidad del entero.
 #### Flotante
+``` rust
+  let resultado=10.01;
+  let interes:f32=8.35;
+  let costo:f64=12_000.785;
+  
+  println!("resultado: {}",resultado);
+  println!("interes: {}",interes);
+  println!("costo: {}",costo);
+```
+- Los flotantes tienen componente fraccionario.
+- Están en base a la **IEEE-754**.
+- El lenguaje rust utilizar el tipo de datos flotante de tamaño **f64** por defecto, alcanza la misma velocidad que **f32**, pero tiene mayor precisión.
+- Para facilitar la lectura se puede utilizar el `_` subrayado dentro de los números.
+- **Tipos de flotante**
+  | Longitud | Tipos | Precisión |
+  | :------: | :---: | :-------: |
+  |32 bits  |  f32  |  Simple   |
+  |64 bits  |  f64  |  Doble   |
 #### Booleano
-#### Caracter
+``` rust
+  let esta_jugando:bool=false;
+  println!("¿esta jugando?: {}",esta_jugando);
+```
+- Los flotantes tienen dos valores posibles **true** o **false**.
+- Utilice la palabra clave **bool** para declarar una variable booleana. 
+- Su tamaño es de 1 byte = 8 bits = i8
+#### Carácter
+``` rust
+  let caracter_especial='@';
+  let caracter_alfanumerico: char='7';
+  let caracter_emoji:char = '😁';
+    
+  println!("caracter especial: {}",caracter_especial);
+  println!("caracter alfanumérico: {}",caracter_alfanumerico);
+  println!("caracter emoji: {}",caracter_emoji);
+```
+- El lenguaje rust utilizar el tipo de datos carácter, que admite alfanuméricos, unicode (puede representar mucho más que solo ASCII) y caracteres especiales.
+  - Letras acentuadas
+  - Caracteres chinos, japoneses y coreanos
+  - Emojis
+  - Espacios de ancho cero
+- Es el tipo de datos de manipulación de caracteres más primitivo del lenguaje.
+- Se utiliza la palabra clave **char** para declarar una variable de tipo carácter.
+- El carácter va encerrado entre comillas simples `'valor'`. 
+### Valores nulos
+- El lenguaje rust no  tiene valores nulos.
+- Para el lenguaje rust, nulo es un valor que actualmente no es válido o está ausente por algún motivo
+- Se evita problemas, porque la referencia nula genera errores, vulnerabilidades y fallas del sistema (*Tony Hoare, error de mil millones de dólares*).
 ### Compuestos
 - Permite que la variable o constante con ese tipo de datos almacene **más de un solo valor**
 #### Tupla
