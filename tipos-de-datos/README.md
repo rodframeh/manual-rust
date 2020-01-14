@@ -105,12 +105,61 @@
 - Se utiliza la palabra clave **char** para declarar una variable de tipo carácter.
 - El carácter va encerrado entre comillas simples `'valor'`. 
 ### Valores nulos
-- El lenguaje rust no  tiene valores nulos.
 - Para el lenguaje rust, nulo es un valor que actualmente no es válido o está ausente por algún motivo
-- Se evita problemas, porque la referencia nula genera errores, vulnerabilidades y fallas del sistema (*Tony Hoare, error de mil millones de dólares*).
+- En el lenguaje rust **no existen los valores nulos**, esto evita problemas, porque la referencia nula genera errores, vulnerabilidades y fallas del sistema (*Tony Hoare, error de mil millones de dólares*).
 ### Compuestos
 - Permite que la variable o constante con ese tipo de datos almacene **más de un solo valor**
 #### Tupla
+``` rust
+  let tupla = (true,'X','Y','Z',56_854); // Se declara una tupla sin especificar los tipos de datos
+  println!("valores de la tupla {:?}",tupla);
+  
+  let tupla:(f64,char,bool)=(789_345.789,'😁',true); // Se declara una tupla especificando los tipos de datos
+  println!("valores de la tupla {:?}",tupla);
+  println!("primer valor de la tupla {:?}",tupla.0);
+  println!("segundo valor de la tupla {:?}",tupla.1);
+  println!("tercer valor de la tupla {:?}",tupla.2);
+```
+- Los valores almacenados en las tuplas pueden ser de **diferente tipo de datos**.
+- Las tuplas **tienen una longitud fija una vez declaradas**, es decir no pueden incrementar o reducir su longitud despues de su declaración.
+- El **índice** de la tupla comienza en **cero**.
+``` rust
+  let tupla = (true,'X','Y','Z',56_854);
+  let (a,b,c,d,e) = tupla;
+  
+  println!("primer valor de la tupla {:?}",a);
+  println!("segundo valor de la tupla {:?}",b);
+  println!("tercer valor de la tupla {:?}",c);
+  println!("cuarto valor de la tupla {:?}",d);
+  println!("quinto valor de la tupla {:?}",e);
+```
+- Las tuplas permiten su **desestructuración**, es decir se desempaquetan los valores de una tupla en distintas variables.
 #### Array
+``` rust
+  let array =['A','B','C']; // Se declara e inicializa un array sin especificar sus tipos de datos
+  println!("valores del array: {:?}",array);
+  let array:[i32;5]=[1,2,3,4,5]; // Se declara e inicializa un array especificando sus tipos de datos
+  println!("valores del array: {:?}",array);
+  let array=[-2.5;10]; //Se declara e inicializa un array sin especificar sus tipos de datos y con valores predeterminados de -2.5
+  println!("valores del array: {:?}",array);
+  println!("tamaño del array: {}",array.len());
+  let array:[f64;10]=[-2.5;10]; //Se declara e inicializa un array especificando sus tipos de datos y con valores predeterminados de -2.5
+  println!("valores del array: {:?}",array);
+  println!("tamaño del array: {}",array.len());
+```
+- Los valores almacenados en los arrays deben ser del **mismo tipo de datos**.
+- Los arrays  **tienen una longitud fija una vez declarados**, es decir no pueden incrementar o reducir su longitud despues de su declaración.
+- La declaración de un array asigna bloques de memoria secuenciales y cada bloque de memoria representa un elemento del array.
+- Completar los valores de una array se le conoce como inicialización del array.
+``` rust
+    let mut meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    println!("meses del año: {:?}", meses);
+    println!("mes 6: {:?}", meses[5]);
+    meses[5]="Marzo"; // Se actualiza el valor con el indice 5 del array
+    println!("mes 6 (modificado): {:?}", meses[5]);// Se consulta el valor modificado
+```
+- Los valores de un array se identifican mediante un entero único llamado **índice**.
+- El lenguaje rust entra en **pánico** si intenta acceder por el **indice** a un valor no válido o no existente.
+- Los valores del array se pueden **consultar, insertar, modificar pero no eliminar**.
 ### Complejos
 - Falta...
