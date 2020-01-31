@@ -22,9 +22,9 @@ $ cargo new nuevo_proyecto
 ```
 - Crea un nuevo proyecto
 - Carpetas y archivos creados
-  - **src**: Contiene el código del proyecto, el directorio superior es para archivos README, información de licencias, archivos de configuración y cualquier otra cosa que no esté relacionada el código
+  - **src**: Contiene el código del proyecto, el directorio superior es para archivos README, información de licencias, archivos de configuración y cualquier otra cosa que no esté relacionada al código
   - **.git**: Carpeta del VCS (Sistema de Control del Versiones)
-  - **.gitignore**: Archivo oculto del VCS::Git que excluye el versionamiento de ciertos archivos
+  - **.gitignore**: Archivo oculto del VCS::Git que excluye el versionado de ciertos archivos declarados.
   - **target/debug**: Ubicación donde cargo almacena el resultado de la compilación de una versión en desarrollo del programa. 
   - **target/release**: Ubicación donde cargo almacena el resultado de la compilación de una versión estable y optimizada del programa
   - **Cargo.toml**: Archivo de configuración del proyecto. Utiliza el formato TOML que es un formato de configuración cargo. Estructura del archivo:
@@ -50,7 +50,7 @@ $ cargo build --release
 - Carpetas y archivos creados o actualizados después de ejecutar el comando:
   - **/target/release**: Contiene el archivo ejecutable.
   - **Cargo.lock**
-### Ejecutación
+### Ejecución
 ```
 $ cargo run
 ```
@@ -59,9 +59,9 @@ $ cargo run
 ```
 $ cargo check
 ```
-- Verifica si el codigo del proyecto compila sin errores.
+- Verifica si el código del proyecto se compila sin errores.
 - Este comando es más rápido que el comando `$ cargo build` porque no produce un ejecutable, pero sí construye el proyecto.
-### Actualizacion de dependencias
+### Actualización de dependencias
 ```
 $ cargo update
 ```

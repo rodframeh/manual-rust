@@ -72,7 +72,7 @@
 - Los flotantes tienen componente fraccionario.
 - Están en base a la **IEEE-754**.
 - El lenguaje rust utilizar el tipo de datos flotante de tamaño **f64** por defecto, alcanza la misma velocidad que **f32**, pero tiene mayor precisión.
-- Para facilitar la lectura se puede utilizar el `_` subrayado dentro de los números.
+- Para facilitar la lectura se puede utilizar el `_` guión bajo entre los números.
 - **Tipos de flotante**
   | Longitud | Tipos | Precisión |
   | :------: | :---: | :-------: |

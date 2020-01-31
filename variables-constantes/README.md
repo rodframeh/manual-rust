@@ -22,7 +22,7 @@
 ```
 - Para declarar una variable utilice el prefijo **let**. 
 ### Reglas para nombrar una variable
-- Debe estar compuesto de letras, carácter de subrayado o dígitos
+- Debe estar compuesto de letras, guión bajo o dígitos
 - Debe comenzar con una letra o un guión bajo.
 ### Inmutabilidad de variables
 ``` rust
@@ -31,7 +31,7 @@
     x = 6; //--> ERROR, la variable inmutable no puede ser asignada 2 veces
     println!("El valor de x es: {}", x);
 ```
-- La **inmutabilidad** no permite el cambio del valor de una variable, es decir no se puede cambiar su valor  una vez que un valor está vinculado al nombre de variable.
+- La **inmutabilidad** no permite el cambio del valor de una variable, es decir no se puede cambiar su valor una vez que su valor está vinculado al nombre de la variable.
 - Las variables por defecto son inmutables. 
 #### Ventajas
 - Incrementa la seguridad y concurrencia
@@ -73,5 +73,5 @@
 - Para declarar una constante utilice el prefijo **const** y declare el tipo de dato.
 ### Reglas para nombrar una constante
 - Todos los caracteres alfabéticos de la constante deben estar en mayúsculas.
-- Debe estar compuesto de letras, carácter de subrayado o dígitos.
+- Debe estar compuesto de letras, guión bajo o dígitos.
 - Debe comenzar con una letra o un guión bajo.
