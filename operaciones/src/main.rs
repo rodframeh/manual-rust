@@ -36,4 +36,19 @@ fn main() {
     println!("or: {}", a || b);
     // negacion
     println!("negacion: {}",!b);
+    // operaciones bit a bit
+    let a=4;
+    let b=2;
+    // AND en bits &
+    println!("and en bits: {}",a&b);
+    // OR en bits |
+    println!("or en bits: {}",a|b);
+    // XOR en bits ^
+    println!("xor en bits: {}",a^b);
+    // Invertir bits !	
+    println!("invertir bits: {}",!b);
+    // Desplazar bits a la izquierda <<
+    println!("desplazar bits a la izquierda: {}",a<<1);
+    // Desplazar bits a la derecha >>
+    println!("desplazar bits a la derecha: {}",a>>1);
 }
