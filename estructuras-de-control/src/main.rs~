@@ -107,6 +107,6 @@ fn main() {
         if numero%2 ==0{
             continue;
         }
-        println!("el numero {} es impar",numero);
+        println!("numero es impar {}",numero);
     }
 }

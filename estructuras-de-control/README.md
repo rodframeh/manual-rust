@@ -99,19 +99,76 @@ Toda variable declara dentro del ambito `{...}` de la estructura de control sól
 - La declaración `let` con la expresión `match` deben finalizar en `;`.
 - El caso predeterminado se establece con guion bajo `_`, el cual coincidirá con todos los casos posibles que no se hayan especificado antes.
 ## Bucles
-- Son utiles cuando se requiere que un bloque de código o un conjunto de declaraciones se ejecute repetidamente a partir de condiciones establecidas.
+- Son utiles cuando se requiere ejecutar un bloque de código o un conjunto de declaraciones repetidamente a partir de condiciones establecidas. 
+- Si la condicion evaluada es verdadera, ejecuta secuencialmente el codigo que se encuentra dentro del ambito del bucle, luego vuelve a evaluar la condicion y  si es verdadera vuelve a ejecutar el codigo anterior desde el inicio, esto continua hasta que la condición evaluada sea falsa.
 - Un bucle cuyo número de iteraciones está determinado, se le denomina bucle definido.
-#### for
+### Tipos de bucles
+#### Finitos
+- Un bucle ejecuta un bloque de código durante un número específico de veces.
+- Se puede utilizar para iterar sobre un conjunto fijo de valores, como un array.
+#### Infinitos
+- Un bucle ejecuta el bloque de código durante un número ilimitado o indefinido de veces.
+### for
 ``` rust
-	for numero in 1..10{
-	    println!("{}", numero);
+    let limite=7;
+    let mut factorial=1;
+    for contador in 1..limite{
+        factorial*=contador;
+	    println!("numero: {} factorial: {}",contador, factorial);
     }
-    
-    for numero in (1..10).rev(){
-        println!("{}", numero);
+    for contador in (1..limite).rev(){
+        println!("numero: {} factorial: {}",contador, factorial);
+        factorial/=contador;
     }
 ```
-- Se recomienda su uso para el manejo de indices
-- Ofrece mayor seguridad que el buble while
-- Es el bucle más utilzando en el lenguaje Rust
-- Permite iterar entre números con range `..` y se puede revetir la iteración conel método `rev()`
+- Se recomienda su uso para el manejo de indices, debido a que ofrece mayor seguridad que el bucle `while`.
+- Permite iterar entre números con range `..` y se puede revertir la iteración con el método `rev()`.
+- Es el tipo de bucle más utilizando en el lenguaje Rust.
+### loop
+``` rust
+	let mut cantidad=0;
+    println!("se registraron un total de {} entradas", loop{
+        let mut entrada=String::new();
+        std::io::stdin().read_line(&mut entrada).expect("fallo al leer la linea");
+        if entrada.trim()=="exit" {
+            break cantidad;
+        }
+        println!("valor recibido:{}",entrada);
+        cantidad+=1;
+    });
+```
+- Es similar a un bucle infinito `while(true)`.
+- Ejecuta un bloque de código para siempre o hasta que se lo indique con la expresión `break`.
+- La combinación de `let ... break`, permite retornar la expresión donde se rompió el bucle, tambien es el unico bucle donde se permite su uso.
+### while
+``` rust
+    println!("cantidad de numeros a sumar:");
+    let mut limite=String::new();
+    std::io::stdin().read_line(&mut limite).expect("fallo al leer la linea");
+    let limite=limite.trim().parse::<i32>().unwrap();
+    let mut acumulador=0;
+    let mut contador=0;
+    while contador<limite{
+        let mut entrada=String::new();
+        std::io::stdin().read_line(&mut entrada).expect("fallo al leer la linea");
+        let numero=entrada.trim().parse::<i32>().unwrap();
+        acumulador+=numero;
+        contador+=1;
+    }
+    println!("el resultado de la suma es: {}",acumulador);
+```
+- Permite evaluar una condición dentro de un bucle.
+- Elimina gran cantidad de anidación si ha utilizado el patron `loop.. if... else y break` .
+- **Es  propenso a errores**, porque podría entrar en pánico si el índice administrado sobrepasa la longitud de su estructura de datos.
+- **Es lento**, porque el compilador agrega código de tiempo de ejecución para realizar la verificación condicional en cada elemento en cada iteración a través del bucle.
+### Break
+- La expresion `break` permite interrumpir la ejecución del bucle y con esto quitar el control a la estructura.
+### Continue
+``` rust
+    for numero in 1..10 {
+        if numero%2 ==0{
+            continue;
+        }
+        println!("el numero {} es impar",numero);
+```
+- La expresion `continue` omite las declaraciones posteriores y lleva el control al principio del bucle, es decir **pasa a la siguiente iteración del bucle**.
