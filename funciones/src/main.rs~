@@ -1,0 +1,7 @@
+fn main() {
+    println!("Hello, world!");
+}
+//---------- definiendo una funcion
+fn saludar(){
+    println!("Hola a todos!!");
+}
