@@ -1,7 +1,18 @@
 fn main() {
-    println!("Hello, world!");
+     //---------- invocando una funcion
+     saludar();  
 }
 //---------- definiendo una funcion
 fn saludar(){
     println!("Hola a todos!!");
+    fn testino()->i32{
+        println!("prueba2");
+        fn testino2()->i32{
+            println!("prueba2");
+            6
+        }
+        testino2()
+    };
+    let a=testino();
+    println!("valor de: {}",a);
 }
