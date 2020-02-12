@@ -22,4 +22,11 @@ fn saludar(){
 - Consiste 
 - Las funciones se definen usando la palabra clave **fn**.
 - Permite especificar el **qué** y el **cómo** se realizará una tarea específica
-
+## Función `main()`
+- La palabra clave `fn` se usa para definir una función. 
+- `main()` es una función predefinida que actúa como punto de entrada al programa, es un orquestador y no tiene parámetros
+``` rust
+fn main(){
+    // Codigo rust
+}
+```

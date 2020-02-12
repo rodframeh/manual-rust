@@ -1,15 +1,3 @@
 fn main(){
-
-    //----------Declaraciones----------
-    
-    let saludo; // solo esta linea requiere el ";", ya que contiene la declaración de la variable saludo
-c
-    
-    //----------Comentarios----------
-    
-    //Comentarios de una línea
-    /* 
-    Comentarios de 
-    varias líneas
-    */
+    println!("Hello, world");
 }
