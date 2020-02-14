@@ -42,12 +42,54 @@ Statements :
 - El `;` no forma parte de la instrucción en si
 - Al evaluar una expresion de bloque, cada instruccion se ejecuta secuencialmente, excepto las instrucciones de declaracion de items. Luego se ejecuta la expresion final si existiera
 - Los bloques son siempre expresiones de valor y evaluan la ultima expresion en el contexto de expresion de valor, se usa para forzar el moviemiento de un valor.
-## Instrucciones | Sentencias
-- Es un componente de un bloque, expresion externa o funcion externa
+## Instrucciones | Sentencias | Statements
+```
+Statement :
+  ;
+  | Item
+  | LetStatement
+  | ExpressionStatement
+  | MacroInvocationSemi
+```
+- Sirven principalmente para contener y secuenciar explicitamente la evaluacion de expresiones.
+- Es un componente de un bloque, que asu vez es componente de una expresion o funcion externa
 ### Las instrucciones de declaracion
-- 
+- Es aquella que introduce uno o más names en el bloque de instrucción adjunto
+- Los nombres declarados pueden denotar nuevas variables o nuevos items
+#### Declaraciones de item
+``` rust
+#![allow(unused_variables)]
+fn main() {
+    fn outer() {
+      let outer_var = true;
+      fn inner() { /* outer_var is not in scope here */ }
+      inner();
+    }
+}
+```
+- Tiene la forma sintactica identica a una declaracion de un item en un modulo
+- Las declaraciones de un item dentro de un bloque de declaracion restringe su alcance (scope) al bloque que contiene la declaracion
+- El item no tiene un path canonico, ni tampoco hay sub-items que pueda declarar
+- La excepcion a esto es que los items asociados definidos por las implementaciones todavia son accesibles en ambitos externos, siempre que el item sea accesible,
+#### Instrucciones `let` 
+```
+LetStatement :
+  OuterAttribute* let Pattern ( : Type )? (= Expression )? ;
+```
+- Introduce un nuevo conjunto de variables, daoo por un patron irrefutable
+- El patron es seguido opcionalmente por una anotacion de tipo y luego opcionalmente por una expresion inicializadora
+- Cuando no se proporciona una anotación de tipo, el compilador inferira el tipo o señalara un error si no hay suficiente informacion de tipo disponible para una inferencia definitiva
+- Cualquier variable introducida por una declaracion de variable es visible desde el punto de declaracion hasta el final del alcance (scope) del bloque que lo encierra
 ### Las instrucciones de expresion
-- 
+```
+ExpressionStatement :
+  ExpressionWithoutBlock ;	|	ExpressionWithBlock
+```
+- Es aquella que evalua una expresion e ignora su resultado, por lo tanto, el proposito es desencadenar los efectos de evaluar su expresion
+- Una expresion que consiste en una `ExpressionWithBlock` o una expresion de flujo de control, si se usa en un contexto donde se permite una instruccion, puede omitirse el punto y coma final.
+
+
+
 
 - Las declaraciones terminan con `;`, las expresiones no, pero si se le añade se les convierten en declaraciones.
 - Las declaraciones no retornan ningún valor.
@@ -58,3 +100,25 @@ fn main(){
     println!("{}",saludo)// es una expresion y puede o no terminar en ";" ya que no existe ninguna linea siguiente a ejecutarse
 }
 ```
+## Expresiones
+- En el lenguaje Rust la mayoria de las formas que producen valor o causan efecto estan dirigidas por la categoria de sintaxis de expresiones.
+- Cada tipo de expresion normalmente puede anidarse dentro de otro tipo de expresion
+- Las reglas para la evaluacion de expresiones implican especificar tanto el valor producido por la expresion como el orden en que se evaluan sus subexpresiones
+- Puede tener dos roles
+  - Siempre produce un valor
+  - Puede tener efectos secundarios
+- Una expresion se evalua como un valor y  tiene efectos durante la evaluacion
+- Muchas expresiones tiene subexpresiones (operandos)
+- La estructura de las expresiones dicta la estructura de la ejecucion: 
+  - Si evaluar o no las subexpresiones al evaluar la expresion
+  - El orden en el que evalua las subexpresiones
+  - Como combinar los valores de las subexpresiones para obtener el valor de la expresion
+- Los bloques, las instrucciones, las expresiones pueden anidarse recursivamente entre a una profundidad arbitraria
+### Precedencia de expresion
+### Expresiones de lugar y expresiones de valor
+#### Tipos movidos y copiados
+#### Mutabilidad
+#### Lifetimes temporales
+#### Prestamos implicitos
+### Sobrecargando traits
+### Atributos de expresion
